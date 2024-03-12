@@ -31,7 +31,18 @@
 /*---------------------------------------/*
  # SETTINGS
 /*---------------------------------------*/
-
+*{
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+*,*:before,*:after{
+  box-sizing: border-box;
+}
+img{
+  display: block;
+  max-width: 100%;
+}
 // ---
 // Settings: Colors
 // ---
@@ -110,7 +121,7 @@ $breakpoints: (
 // Grid
 // ---
 
-$container-max-width: calc(1400 / $root-font-size * 1rem);
+$container-max-width: calc(1000 / $root-font-size * 1rem);
 
 // The gutter between columns
 $grid-gutter: $space-m;
@@ -150,13 +161,21 @@ img {
 */
 
 html {
+  font-size: calc($root-font-size / 16 * 100%);
+  line-height: 1.5;
+  font-family: $font-family-primary;
+  color: $color-text;
+  scroll-behavior: smooth;
 }
+
 
 /*
     Customize the background color and color to match your design.
 */
 
 ::selection {
+  background-color: $color-primary-light;
+  color: white;
 }
 
 /*
@@ -166,17 +185,41 @@ html {
 */
 
 h1 {
+  font-size: $ms5;
+  font-weight: 700;
+  line-height: calc($baseline*4);
+  margin-bottom: $space-m;
+  @include mq(bp1){
+    font-size: $ms9;
+    line-height: calc($baseline*6);
+  }
+  @include mq(bp2) {
+    font-size: $ms11;
+    line-height: calc($baseline*8);
+  }
 }
 
 h2 {
+  font-size: $ms3;
+  font-weight: 700;
+  line-height: calc($baseline*3);
+  margin-bottom: $space-m;
 }
 
 h3 {
+  font-size: $ms1;
+  font-weight: 700;
+  line-height: calc($baseline*3);
+  margin-bottom: $space-m;
 }
 
 h4,
 h5,
 h6 {
+  font-size: $ms0;
+  font-weight: 700;
+  line-height: calc($baseline*3);
+  margin-bottom: $space-m;
 }
 
 p,
@@ -186,35 +229,58 @@ dl,
 table,
 address,
 figure {
+  margin-bottom: $space-m;
 }
 
 ul,
 ol {
+  padding: 0;
+  list-style-position: inside;
 }
 
 li ul,
 li ol {
+  margin-bottom: 0;
 }
 
 blockquote {
+  font-family: $font-family-secondary;
+  font-style: italic;
+  font-size: $ms3;
+  font-weight: 700;
+  line-height: calc($baseline*4);
+  margin-bottom: $space-m;
 }
 
 figcaption {
+  font-size: $ms-1;
+  line-height: calc($baseline*2);
+  margin-top: $space-xs;
+  color: $color-text-lighter;
 }
 
 hr {
+  border: 0;
+  height: 1px;
+  background-color: $color-border;
+  margin-bottom: $space-m;
 }
 
 a {
+  color: $color-primary;
+  transition: all 0.1s ease-in-out;
 }
 
 a:hover {
+  color: $color-primary-light
 }
 
 a:visited {
+  color: $color-primary;
 }
 
 a:active {
+  color: $color-primary-dark
 }
 
 /*---------------------------------------/*
@@ -228,6 +294,15 @@ a:active {
 */
 
 .o-row {
+  padding: $space-xl $space-m $space-m;
+}
+.o-row--dark {
+  background-color: #343a40,;
+  color: white;
+  display: flow-root;
+}
+.o-row—primary {
+  background-color: $color-primary-lighter;
 }
 
 /*
@@ -237,6 +312,8 @@ a:active {
 */
 
 .o-container {
+  margin: 0 auto;
+  max-width: $container-max-width;
 }
 
 /*
